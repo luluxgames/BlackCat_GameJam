@@ -8,6 +8,9 @@ public class movimientoGato : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    //detectar si el jugador se ha movido
+    public bool playerMoved = false;
+
     [Header("Movimiento")]
     private float movimientoHorizontal = 0f;
     [SerializeField] private float velocidadMovimiento;
@@ -32,15 +35,24 @@ public class movimientoGato : MonoBehaviour
     {
         movimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadMovimiento;
 
+        if (Input.GetButtonDown("Horizontal"))
+        {
+            playerMoved = true;
+        }
+
         if(Input.GetButtonDown("Jump"))
         {
+            playerMoved = true;
             salto = true;
         }
 
         if (Input.GetKeyDown(KeyCode.J))
         {
+            playerMoved = true;
             InvertirPosicionX();
+
         }
+
 
     }
 
