@@ -36,6 +36,12 @@ public class movimientoGato : MonoBehaviour
         {
             salto = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            InvertirPosicionX();
+        }
+
     }
 
     private void FixedUpdate()
@@ -82,5 +88,10 @@ public class movimientoGato : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(controladorSuelo.position, dimensionesBox);
+    }
+
+    public void InvertirPosicionX()
+    {
+        transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
     }
 }
