@@ -7,8 +7,15 @@ public class LevelManager : MonoBehaviour
 {
     private Vector2 actualSpawn;
     private Vector2 actualWater;
-    private Vector2 spawnLv1 = new Vector2(-6.25f, -2.45f);
-    private Vector2 waterLv1 = new Vector2(0f, -33f);
+
+    //Spawn points per lvl
+    private Vector2 spawnLv1 = new Vector2(-7f, -3.729f);
+
+    //Water spawn points
+    private Vector2 waterLv1 = new Vector2(0f, -34.89f);
+
+    //Water speeds
+    private float waterSpeedLv1 = 0.5f;
 
     public GameObject gato;
     public GameObject water;
@@ -16,9 +23,13 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movimientoGato scriptGato = gato.GetComponent<movimientoGato>();
         actualSpawn = spawnLv1;
         actualWater = waterLv1;
+
+
+        WaterController scriptWater = water.GetComponent<WaterController>();
+        scriptWater.velocidad = waterSpeedLv1;
+
     }
 
     // Update is called once per frame
