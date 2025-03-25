@@ -10,6 +10,7 @@ public class movimientoGato : MonoBehaviour
 
     //detectar si el jugador se ha movido
     public bool playerMoved = false;
+    public RayCast rayCast;
 
     [Header("Movimiento")]
     private float movimientoHorizontal = 0f;
@@ -20,10 +21,6 @@ public class movimientoGato : MonoBehaviour
 
     [Header("Salto")]
     [SerializeField] private float fuerzaSalto;
-    [SerializeField] private LayerMask queEsSuelo;
-    [SerializeField] private Transform controladorSuelo;
-    [SerializeField] private Vector3 dimensionesBox;
-    [SerializeField] private bool enSuelo;
     private bool salto = false;
     
     // Sprites y animaciones
@@ -89,11 +86,9 @@ public class movimientoGato : MonoBehaviour
 
     private void FixedUpdate()
     {
-        enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionesBox, 0f, queEsSuelo);
-
         Mover(movimientoHorizontal * Time.fixedDeltaTime, salto);
-
         salto = false;
+        //salto = false;
     }
 
     private void Mover(float mover, bool saltar)
@@ -111,9 +106,9 @@ public class movimientoGato : MonoBehaviour
 
         }
 
-        if(enSuelo && saltar)
+        if(rayCast.enSuelo && saltar)
         {
-            enSuelo = false;
+
             rb.AddForce(new Vector2(0f, fuerzaSalto));
         }
 
@@ -127,11 +122,7 @@ public class movimientoGato : MonoBehaviour
         transform.localScale = escala;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(controladorSuelo.position, dimensionesBox);
-    }
+
 
     public void InvertirPosicionX()
     {
