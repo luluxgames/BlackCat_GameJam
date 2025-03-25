@@ -38,8 +38,8 @@ public class LevelManager : MonoBehaviour
         actualSpawn = spawnLv1;
         actualWaterSpawn = waterSpawnLv1;
 
-        gato.transform.position = actualSpawn;
-        water.transform.position = actualWaterSpawn;
+        //gato.transform.position = actualSpawn;
+        //water.transform.position = actualWaterSpawn;
 
         WaterController scriptWater = water.GetComponent<WaterController>();
         scriptWater.velocidad = waterSpeedLv1;
