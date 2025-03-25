@@ -7,6 +7,7 @@ using UnityEngine;
 public class movimientoGato : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public PosicionReflejo posicionReflejo;
 
     //detectar si el jugador se ha movido
     public bool playerMoved = false;
@@ -126,7 +127,11 @@ public class movimientoGato : MonoBehaviour
 
     public void InvertirPosicionX()
     {
-        transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
+        if (posicionReflejo.onGround == false)
+        {
+            transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
+        }
+        
     }
 
 }
