@@ -25,6 +25,11 @@ public class movimientoGato : MonoBehaviour
     [SerializeField] private Vector3 dimensionesBox;
     [SerializeField] private bool enSuelo;
     private bool salto = false;
+    
+    // Sprites y animaciones
+    public SpriteRenderer playerSprite;
+    public Animator animator;
+    bool isIdle = false;
 
     private void Start()
     {
@@ -38,12 +43,23 @@ public class movimientoGato : MonoBehaviour
         if (Input.GetButtonDown("Horizontal"))
         {
             playerMoved = true;
+            animator.SetBool("Jump", false);
+            animator.SetBool("Idle", false);
+            animator.SetBool("Walk", true);
+            isIdle = false; // Reset idle state
+            Debug.Log("Walk");
         }
+    
 
-        if(Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
             playerMoved = true;
             salto = true;
+            animator.SetBool("Idle", false);
+            animator.SetBool("Walk", false);
+            animator.SetBool("Jump", true);
+            Debug.Log("Jump");
+            isIdle = false; // Reset idle state
         }
 
         if (Input.GetKeyDown(KeyCode.J))
@@ -53,6 +69,21 @@ public class movimientoGato : MonoBehaviour
 
         }
 
+        if (movimientoHorizontal == 0 && !Input.GetButton("Jump") && !Input.GetKey(KeyCode.J))
+        {
+            if (!isIdle) // Only trigger Idle once
+            {
+                animator.SetBool("Idle", true);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Jump", false);
+                Debug.Log("Idle");
+                isIdle = true; // Mark as idle so it doesn’t keep firing
+            }
+        }
+        else
+        {
+            isIdle = false; // Reset if the player moves again
+        }
 
     }
 
@@ -106,4 +137,5 @@ public class movimientoGato : MonoBehaviour
     {
         transform.position = new Vector3(-transform.position.x, transform.position.y, transform.position.z);
     }
+
 }
