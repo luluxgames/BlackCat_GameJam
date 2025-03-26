@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterController : MonoBehaviour
 {
-    public LevelManager levelManager;
+    public GameOver gameOver;
     public movimientoGato movimientoGato;
     public float velocidad = 2f;
 
@@ -18,7 +18,7 @@ public class WaterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (movimientoGato.playerMoved)
+        if (movimientoGato.playerMoved == true && gameOver.destructionStarted == false)
         {
             Debug.Log("Se mueve la awita");
             transform.Translate(Vector2.up * velocidad * Time.deltaTime);
@@ -29,7 +29,7 @@ public class WaterController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            levelManager.triggerGameOver();
+            gameOver.KillPlayerWithDelay();
         }
     }
 }
