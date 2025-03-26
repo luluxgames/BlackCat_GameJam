@@ -51,8 +51,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actualSpawn = spawnLv7;
-        actualWaterSpawn = waterSpawnLv7;
+        actualSpawn = spawnLv8;
+        actualWaterSpawn = waterSpawnLv8;
 
         gato.transform.position = actualSpawn;
         water.transform.position = actualWaterSpawn;
@@ -122,6 +122,12 @@ public class LevelManager : MonoBehaviour
             actualWaterSpawn = waterSpawnLv9;
             scriptWater.velocidad = waterSpeedLv9;
 
+        }
+        else
+        {
+            actualSpawn = spawnLv1;
+            actualWaterSpawn = waterSpawnLv1;
+            scriptWater.velocidad = waterSpeedLv1;
         }
     }
     public void triggerGameOver()

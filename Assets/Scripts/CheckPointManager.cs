@@ -26,7 +26,52 @@ public class CheckPointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //cheats
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            checkpointProgress = 1;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F2))
+        {
+            checkpointProgress = 2;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F3))
+        {
+            checkpointProgress = 3;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F4))
+        {
+            checkpointProgress = 4;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F5))
+        {
+            checkpointProgress = 5;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F6))
+        {
+            checkpointProgress = 6;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F7))
+        {
+            checkpointProgress = 7;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F8))
+        {
+            checkpointProgress = 8;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
+        else if (Input.GetKeyDown(KeyCode.F9))
+        {
+            checkpointProgress = 9;
+            Debug.Log("Checkpoint Progress set to: " + checkpointProgress);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
