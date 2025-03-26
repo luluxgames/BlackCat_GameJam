@@ -1777,7 +1777,7 @@ MonoBehaviour:
   menuMusicx: {fileID: 579327541}
   fadePanel: {fileID: 685867292}
   fadeDuration: 5
-  escenaADesCargar: Main
+  escenaADesCargar: StoryIntro
 --- !u!1 &2125230802
 GameObject:
   m_ObjectHideFlags: 0
