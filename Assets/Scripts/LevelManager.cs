@@ -51,8 +51,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actualSpawn = spawnLv8;
-        actualWaterSpawn = waterSpawnLv8;
+        actualSpawn = spawnLv1;
+        actualWaterSpawn = waterSpawnLv1;
 
         gato.transform.position = actualSpawn;
         water.transform.position = actualWaterSpawn;
