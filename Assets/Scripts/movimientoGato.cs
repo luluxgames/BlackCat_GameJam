@@ -9,6 +9,9 @@ public class movimientoGato : MonoBehaviour
     private Rigidbody2D rb;
     public PosicionReflejo posicionReflejo;
 
+    private bool textoActivado = true;
+    public GameObject texto;
+
     //detectar si el jugador se ha movido
     public bool playerMoved = false;
     public RayCast rayCast;
@@ -32,6 +35,7 @@ public class movimientoGato : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        texto.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void Update()
@@ -41,6 +45,7 @@ public class movimientoGato : MonoBehaviour
         if (Input.GetButtonDown("Horizontal"))
         {
             playerMoved = true;
+
             animator.SetBool("Jump", false);
             animator.SetBool("Idle", false);
             animator.SetBool("Walk", true);
@@ -64,6 +69,12 @@ public class movimientoGato : MonoBehaviour
         {
             playerMoved = true;
             InvertirPosicionX();
+
+            if (textoActivado == true)
+            {
+                textoActivado = false;
+                texto.SetActive(false);
+            }
 
         }
 
