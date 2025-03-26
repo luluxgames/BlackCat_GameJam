@@ -47,6 +47,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Alga
+    uniqueID: 2877656699
+    locked: 0
+  - name: Fog
+    uniqueID: 321425547
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
